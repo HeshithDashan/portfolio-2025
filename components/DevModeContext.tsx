@@ -24,7 +24,6 @@ export const DevModeProvider = ({ children }: { children: ReactNode }) => {
       }`}>
         {children}
         
-        {/* The Magic Button */}
         <button
           onClick={toggleDevMode}
           className={`fixed bottom-8 right-8 z-50 px-6 py-3 font-bold rounded-full shadow-2xl transition-all border-2 ${

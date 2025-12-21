@@ -1,6 +1,6 @@
 "use client"
 import React from 'react';
-import { useDevMode } from './DevModeContext'; // අපි හදපු Switch එක connect කරනවා
+import { useDevMode } from './DevModeContext'; 
 
 export default function Hero() {
   const { isDevMode } = useDevMode();
@@ -8,7 +8,6 @@ export default function Hero() {
   return (
     <section className="min-h-[80vh] flex flex-col justify-center items-center text-center p-5">
       
-      {/* ----------------- GOD MODE (Hacker View) ----------------- */}
       {isDevMode ? (
         <div className="text-left space-y-4 max-w-3xl w-full">
           <p className="text-gray-500 text-sm">// Initializing Portfolio Protocol v2.0...</p>
@@ -30,7 +29,6 @@ export default function Hero() {
         </div>
       ) : (
       
-      /* ----------------- NORMAL MODE (Human View) ----------------- */
         <div className="space-y-6 animate-fade-in-up">
            <div className="text-sm font-bold tracking-widest text-blue-600 uppercase">
              Software Engineering Student

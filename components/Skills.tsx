@@ -17,7 +17,6 @@ export default function Skills() {
   return (
     <section className="py-20 px-5 max-w-4xl mx-auto">
       
-      {/* ----------------- GOD MODE (System Monitor Style) ----------------- */}
       {isDevMode ? (
         <div className="border border-green-800 bg-black p-5 font-mono shadow-[0_0_15px_rgba(0,255,0,0.1)]">
           <div className="flex justify-between border-b border-green-900 pb-2 mb-4 text-xs text-green-600">
@@ -45,14 +44,13 @@ export default function Skills() {
               </div>
             ))}
           </div>
-          {/* මෙන්න මෙතන තමයි > ලකුණ වෙනුවට &gt; දැම්මේ */}
+
           <p className="mt-6 text-xs text-green-700 animate-pulse">
             &gt; SYSTEM RESOURCES OPTIMIZED FOR FULLSTACK DEVELOPMENT...
           </p>
         </div>
       ) : (
 
-      /* ----------------- NORMAL MODE (Clean Design) ----------------- */
         <div>
           <h2 className="text-3xl font-bold mb-8 text-center">Technical Arsenal</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

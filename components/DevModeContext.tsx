@@ -1,7 +1,6 @@
 "use client"
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
-// 1. Context Type එක
 interface DevModeContextType {
   isDevMode: boolean;
   toggleDevMode: () => void;
@@ -9,7 +8,6 @@ interface DevModeContextType {
 
 const DevModeContext = createContext<DevModeContextType | undefined>(undefined);
 
-// 2. Provider Logic
 export const DevModeProvider = ({ children }: { children: ReactNode }) => {
   const [isDevMode, setIsDevMode] = useState(false);
 
@@ -42,7 +40,7 @@ export const DevModeProvider = ({ children }: { children: ReactNode }) => {
   );
 };
 
-// 3. Custom Hook
+
 export const useDevMode = () => {
   const context = useContext(DevModeContext);
   if (!context) {

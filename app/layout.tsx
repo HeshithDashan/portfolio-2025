@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import "./globals.css";
-// මෙතනින් තමයි අපි අර හදපු එක ගන්නේ (import path එක බලන්න)
 import { DevModeProvider } from "../components/DevModeContext"; 
 
 export const metadata: Metadata = {

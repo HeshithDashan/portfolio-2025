@@ -26,7 +26,8 @@ export default function Contact() {
   };
 
   return (
-    <section className="py-20 px-5 max-w-4xl mx-auto mb-20">
+    // ✅ මෙන්න මෙතනට id="contact" දැම්මා. දැන් බටන් එක වැඩ කරයි!
+    <section id="contact" className="py-20 px-5 max-w-4xl mx-auto mb-20">
       
       {/* ----------------- GOD MODE (Terminal Input) ----------------- */}
       {isDevMode ? (

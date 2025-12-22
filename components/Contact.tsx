@@ -5,7 +5,6 @@ import { useDevMode } from './DevModeContext';
 export default function Contact() {
   const { isDevMode } = useDevMode();
   
-  // Form එකේ ඩේටා තියාගන්න
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
@@ -14,25 +13,22 @@ export default function Contact() {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // බොරුවට යවනවා වගේ පෙන්නන්න (Simulation)
     setTimeout(() => {
       setIsSubmitting(false);
       setShowSuccess(true);
       setFormData({ name: '', email: '', message: '' });
       
-      // තත්පර 3කින් මැසේජ් එක අයින් කරන්න
       setTimeout(() => setShowSuccess(false), 3000);
     }, 1500);
   };
 
   return (
-    // ✅ මෙන්න මෙතනට id="contact" දැම්මා. දැන් බටන් එක වැඩ කරයි!
+
     <section id="contact" className="py-20 px-5 max-w-4xl mx-auto mb-20">
       
-      {/* ----------------- GOD MODE (Terminal Input) ----------------- */}
       {isDevMode ? (
         <div className="border-2 border-green-800 bg-black p-8 font-mono shadow-[0_0_30px_rgba(0,255,0,0.15)] relative overflow-hidden">
-           {/* Matrix Background Effect (Optional decorative element) */}
+
            <div className="absolute top-0 right-0 p-2 opacity-20 pointer-events-none">
               <p>ENCRYPTION: AES-256</p>
               <p>PORT: 443 (SECURE)</p>
@@ -107,7 +103,6 @@ export default function Contact() {
         </div>
       ) : (
 
-      /* ----------------- NORMAL MODE (Clean Form) ----------------- */
         <div className="bg-white p-8 rounded-3xl shadow-xl border border-gray-100 max-w-2xl mx-auto">
           <div className="text-center mb-8">
             <h2 className="text-3xl font-bold mb-2 text-gray-800">Get In Touch</h2>

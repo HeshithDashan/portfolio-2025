@@ -2,7 +2,6 @@
 import React from 'react';
 import { useDevMode } from './DevModeContext';
 
-// ඔයාගේ Project විස්තර ටික මෙතන වෙනස් කරන්න
 const projects = [
   {
     id: 1,
@@ -44,7 +43,6 @@ export default function Projects() {
   return (
     <section className="py-20 px-5 max-w-6xl mx-auto">
       
-      {/* ----------------- GOD MODE (Database Query Style) ----------------- */}
       {isDevMode ? (
         <div className="font-mono text-green-400">
            <div className="mb-6 border-b border-green-800 pb-2">
@@ -76,7 +74,6 @@ export default function Projects() {
         </div>
       ) : (
 
-      /* ----------------- NORMAL MODE (Modern Cards) ----------------- */
         <div>
           <h2 className="text-4xl font-bold mb-4 text-center">Featured Projects</h2>
           <p className="text-center text-gray-500 mb-12 max-w-2xl mx-auto">

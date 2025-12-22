@@ -1,7 +1,7 @@
 import Hero from "../components/Hero";
 import Skills from "../components/Skills";
 import Projects from "../components/Projects";
-import Contact from "../components/Contact"; // 1. අලුත් Contact එක මෙතනින් ගත්තා
+import Contact from "../components/Contact"; 
 
 export default function Home() {
   return (
@@ -12,7 +12,6 @@ export default function Home() {
 
        <Projects /> 
        
-       {/* 2. Contact Form එක මෙතනට දැම්මා */}
        <Contact />
     </main>
   );

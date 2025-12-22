@@ -5,7 +5,6 @@ import { useDevMode } from './DevModeContext';
 export default function Hero() {
   const { isDevMode } = useDevMode();
 
-  // Scroll කරන ෆන්ක්ෂන් එක
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -16,7 +15,6 @@ export default function Hero() {
   return (
     <section className="min-h-[80vh] flex flex-col justify-center items-center text-center p-5">
       
-      {/* ----------------- GOD MODE ----------------- */}
       {isDevMode ? (
         <div className="text-left space-y-4 max-w-3xl w-full">
           <p className="text-gray-500 text-sm">// Initializing Portfolio Protocol v2.0...</p>
@@ -38,7 +36,6 @@ export default function Hero() {
         </div>
       ) : (
       
-      /* ----------------- NORMAL MODE ----------------- */
         <div className="space-y-6 animate-fade-in-up">
            <div className="text-sm font-bold tracking-widest text-blue-600 uppercase">
              Software Engineering Student

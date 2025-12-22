@@ -41,7 +41,7 @@ export default function Projects() {
   const { isDevMode } = useDevMode();
 
   return (
-    // ✅ මෙන්න මෙතනට මම id="projects" කෑල්ල දැම්මා. දැන් බටන් එක වැඩ කරයි!
+
     <section id="projects" className="py-20 px-5 max-w-6xl mx-auto">
       
       {isDevMode ? (

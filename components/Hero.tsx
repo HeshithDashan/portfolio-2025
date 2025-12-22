@@ -1,13 +1,22 @@
 "use client"
 import React from 'react';
-import { useDevMode } from './DevModeContext'; 
+import { useDevMode } from './DevModeContext';
 
 export default function Hero() {
   const { isDevMode } = useDevMode();
 
+  // Scroll කරන ෆන්ක්ෂන් එක
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="min-h-[80vh] flex flex-col justify-center items-center text-center p-5">
       
+      {/* ----------------- GOD MODE ----------------- */}
       {isDevMode ? (
         <div className="text-left space-y-4 max-w-3xl w-full">
           <p className="text-gray-500 text-sm">// Initializing Portfolio Protocol v2.0...</p>
@@ -18,7 +27,7 @@ export default function Hero() {
             </p>
             <div className="pl-8 text-green-300 font-mono">
               <p>name: <span className="text-orange-400">"Heshith Dashan"</span>,</p>
-              <p>role: <span className="text-orange-400">"Fullstack Softwere Engineer"</span>,</p>
+              <p>role: <span className="text-orange-400">"Fullstack Software Engineer"</span>,</p>
               <p>skills: [<span className="text-orange-400">"Next.js"</span>, <span className="text-orange-400">"Java"</span>, <span className="text-orange-400">"Python"</span>],</p>
               <p>status: <span className="text-red-400 animate-pulse">"Ready to Code..."</span></p>
             </div>
@@ -29,6 +38,7 @@ export default function Hero() {
         </div>
       ) : (
       
+      /* ----------------- NORMAL MODE ----------------- */
         <div className="space-y-6 animate-fade-in-up">
            <div className="text-sm font-bold tracking-widest text-blue-600 uppercase">
              Software Engineering Student
@@ -42,10 +52,16 @@ export default function Hero() {
            </p>
            
            <div className="flex gap-4 justify-center mt-8">
-             <button className="px-8 py-3 bg-black text-white rounded-full font-semibold hover:bg-gray-800 transition">
+             <button 
+               onClick={() => scrollToSection('projects')}
+               className="px-8 py-3 bg-black text-white rounded-full font-semibold hover:bg-gray-800 transition transform hover:scale-105"
+             >
                View Projects
              </button>
-             <button className="px-8 py-3 border border-gray-300 rounded-full font-semibold hover:bg-gray-100 transition">
+             <button 
+               onClick={() => scrollToSection('contact')}
+               className="px-8 py-3 border border-gray-300 rounded-full font-semibold hover:bg-gray-100 transition transform hover:scale-105"
+             >
                Contact Me
              </button>
            </div>

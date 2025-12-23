@@ -15,7 +15,6 @@ export default function Hero() {
   return (
     <section className="min-h-[80vh] flex flex-col justify-center items-center text-center p-5 relative z-10">
       
-      {/* ----------------- GOD MODE ----------------- */}
       {isDevMode ? (
         <div className="text-left space-y-4 max-w-3xl w-full">
           <p className="text-gray-500 text-sm">// Initializing Portfolio Protocol v2.0...</p>
@@ -37,7 +36,6 @@ export default function Hero() {
         </div>
       ) : (
       
-      /* ----------------- NORMAL MODE ----------------- */
         <div className="space-y-6 animate-fade-in-up">
            <div className="text-sm font-bold tracking-widest text-blue-600 uppercase">
              Software Engineering Student
@@ -51,7 +49,7 @@ export default function Hero() {
            </p>
            
            <div className="flex gap-4 justify-center mt-8">
-             {/* View Projects Button */}
+
              <button 
                onClick={() => scrollToSection('projects')}
                className="px-8 py-3 rounded-full font-semibold transition transform hover:scale-105 
@@ -61,7 +59,6 @@ export default function Hero() {
                View Projects
              </button>
 
-             {/* Contact Me Button (Fixed Visibility) */}
              <button 
                onClick={() => scrollToSection('contact')}
                className="px-8 py-3 rounded-full font-semibold transition transform hover:scale-105 border 

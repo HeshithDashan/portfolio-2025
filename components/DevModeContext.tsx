@@ -13,19 +13,16 @@ const DevModeContext = createContext<DevModeContextType | undefined>(undefined);
 
 export const DevModeProvider = ({ children }: { children: ReactNode }) => {
   const [isDevMode, setIsDevMode] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(false); // Standard Dark Mode
+  const [isDarkMode, setIsDarkMode] = useState(false); 
 
-  // God Mode Toggle
   const toggleDevMode = () => {
     setIsDevMode((prev) => !prev);
   };
 
-  // Standard Dark Mode Toggle
   const toggleDarkMode = () => {
     setIsDarkMode((prev) => !prev);
   };
 
-  // Dark Mode එක HTML එකට add කරනවා
   useEffect(() => {
     if (isDarkMode) {
       document.documentElement.classList.add('dark');
@@ -40,14 +37,12 @@ export const DevModeProvider = ({ children }: { children: ReactNode }) => {
         isDevMode 
           ? "font-mono bg-black text-green-400 border-[10px] border-green-900 overflow-x-hidden" 
           : isDarkMode
-            ? "font-sans bg-gray-950 text-white" // Standard Dark Mode Colors
-            : "font-sans bg-gray-50 text-gray-900" // Light Mode Colors
+            ? "font-sans bg-gray-950 text-white" 
+            : "font-sans bg-gray-50 text-gray-900" 
       }`}>
         
-        {/* GOD MODE: Matrix Rain */}
         {isDevMode && <MatrixRain />}
 
-        {/* NORMAL MODES: Animated Background Blobs (Empty ගතිය යවන්න) */}
         {!isDevMode && (
           <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
              <div className={`absolute top-[-10%] left-[-10%] w-[40vw] h-[40vw] rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob 
@@ -59,15 +54,12 @@ export const DevModeProvider = ({ children }: { children: ReactNode }) => {
           </div>
         )}
 
-        {/* Content Layer */}
         <div className="relative z-10">
             {children}
         </div>
         
-        {/* Buttons Container */}
         <div className="fixed bottom-8 right-8 z-50 flex flex-col gap-4 items-end">
           
-          {/* 1. Theme Toggle Button (Light/Dark) - God Mode නැති වෙලාවට විතරයි පේන්නේ */}
           {!isDevMode && (
             <button
               onClick={toggleDarkMode}
@@ -79,7 +71,6 @@ export const DevModeProvider = ({ children }: { children: ReactNode }) => {
             </button>
           )}
 
-          {/* 2. God Mode Switch */}
           <button
             onClick={toggleDevMode}
             className={`px-6 py-3 font-bold rounded-full shadow-2xl transition-all border-2 ${

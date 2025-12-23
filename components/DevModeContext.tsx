@@ -13,7 +13,7 @@ const DevModeContext = createContext<DevModeContextType | undefined>(undefined);
 
 export const DevModeProvider = ({ children }: { children: ReactNode }) => {
   const [isDevMode, setIsDevMode] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(false); 
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   const toggleDevMode = () => {
     setIsDevMode((prev) => !prev);
@@ -37,37 +37,51 @@ export const DevModeProvider = ({ children }: { children: ReactNode }) => {
         isDevMode 
           ? "font-mono bg-black text-green-400 border-[10px] border-green-900 overflow-x-hidden" 
           : isDarkMode
-            ? "font-sans bg-gray-950 text-white" 
-            : "font-sans bg-gray-50 text-gray-900" 
+            ? "font-sans bg-[#0a0a0a] text-white" 
+            : "font-sans bg-white text-black" // ✅ Light Mode: සම්පූර්ණ සුදු, අකුරු කළු
       }`}>
         
+        {/* GOD MODE */}
         {isDevMode && <MatrixRain />}
 
+        {/* NORMAL MODE: Very Subtle Professional Blobs */}
         {!isDevMode && (
           <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
-             <div className={`absolute top-[-10%] left-[-10%] w-[40vw] h-[40vw] rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob 
-               ${isDarkMode ? 'bg-purple-900' : 'bg-purple-300'}`}></div>
-             <div className={`absolute top-[-10%] right-[-10%] w-[40vw] h-[40vw] rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000 
-               ${isDarkMode ? 'bg-blue-900' : 'bg-yellow-300'}`}></div>
-             <div className={`absolute bottom-[-20%] left-[20%] w-[40vw] h-[40vw] rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-4000 
-               ${isDarkMode ? 'bg-indigo-900' : 'bg-pink-300'}`}></div>
+             {/* Opacity එක ගොඩක් අඩු කරා (20-30%), එතකොට අකුරු යට වෙන්නේ නෑ */}
+             <div className={`absolute w-full h-full ${isDarkMode ? 'opacity-30' : 'opacity-30'}`}>
+               
+               {/* 1. Gray/Blue Blob */}
+               <div className={`absolute top-[-20%] left-[-10%] w-[60vw] h-[60vw] rounded-full filter blur-[100px] animate-blob 
+                 ${isDarkMode ? 'bg-blue-900' : 'bg-slate-300'}`}></div>
+               
+               {/* 2. Light Blue Blob */}
+               <div className={`absolute top-[20%] right-[-20%] w-[50vw] h-[50vw] rounded-full filter blur-[100px] animate-blob animation-delay-2000 
+                 ${isDarkMode ? 'bg-indigo-900' : 'bg-blue-200'}`}></div>
+               
+               {/* 3. Bottom Gray Blob */}
+               <div className={`absolute bottom-[-20%] left-[10%] w-[50vw] h-[50vw] rounded-full filter blur-[100px] animate-blob animation-delay-4000 
+                 ${isDarkMode ? 'bg-gray-800' : 'bg-gray-200'}`}></div>
+             </div>
           </div>
         )}
 
+        {/* Content Layer */}
         <div className="relative z-10">
             {children}
         </div>
         
+        {/* Buttons */}
         <div className="fixed bottom-8 right-8 z-50 flex flex-col gap-4 items-end">
-          
           {!isDevMode && (
             <button
               onClick={toggleDarkMode}
-              className={`p-4 rounded-full shadow-xl transition-all hover:scale-110 ${
-                isDarkMode ? "bg-white text-black" : "bg-gray-900 text-white"
+              className={`p-4 rounded-full shadow-xl transition-all hover:scale-110 border-2 ${
+                isDarkMode 
+                ? "bg-gray-800 text-yellow-400 border-gray-700" 
+                : "bg-white text-black border-gray-300"
               }`}
             >
-              {isDarkMode ? "☀️ Light" : "🌙 Dark"}
+              {isDarkMode ? "🌙" : "☀️"}
             </button>
           )}
 

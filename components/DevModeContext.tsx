@@ -1,6 +1,6 @@
 "use client"
 import React, { createContext, useContext, useState, ReactNode } from 'react';
-import MatrixRain from './MatrixRain'; // ✅ 1. Matrix Rain එක ගත්තා
+import MatrixRain from './MatrixRain'; 
 
 interface DevModeContextType {
   isDevMode: boolean;
@@ -24,10 +24,8 @@ export const DevModeProvider = ({ children }: { children: ReactNode }) => {
           : "font-sans bg-white text-black"
       }`}>
         
-        {/* ✅ 2. God Mode ON නම් විතරක් වැස්ස පෙන්නනවා */}
         {isDevMode && <MatrixRain />}
 
-        {/* අනිත් Content ටික වැස්සට යට නොවී උඩින් පේන්න z-index දැම්මා */}
         <div className="relative z-10">
             {children}
         </div>

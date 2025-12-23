@@ -13,13 +13,14 @@ export default function Hero() {
   };
 
   return (
-    <section className="min-h-[80vh] flex flex-col justify-center items-center text-center p-5">
+    <section className="min-h-[80vh] flex flex-col justify-center items-center text-center p-5 relative z-10">
       
+      {/* ----------------- GOD MODE ----------------- */}
       {isDevMode ? (
         <div className="text-left space-y-4 max-w-3xl w-full">
           <p className="text-gray-500 text-sm">// Initializing Portfolio Protocol v2.0...</p>
           
-          <div className="bg-black/50 p-6 rounded-lg border border-green-800 shadow-[0_0_20px_rgba(0,255,0,0.2)]">
+          <div className="bg-black/50 p-6 rounded-lg border border-green-800 shadow-[0_0_20px_rgba(0,255,0,0.2)] backdrop-blur-sm">
             <p className="text-green-400 font-mono text-xl">
               <span className="text-purple-400">const</span> <span className="text-yellow-400">developer</span> = <span className="text-blue-400">{"{"}</span>
             </p>
@@ -36,28 +37,36 @@ export default function Hero() {
         </div>
       ) : (
       
+      /* ----------------- NORMAL MODE ----------------- */
         <div className="space-y-6 animate-fade-in-up">
            <div className="text-sm font-bold tracking-widest text-blue-600 uppercase">
              Software Engineering Student
            </div>
-           <h1 className="text-6xl md:text-8xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600">
+           <h1 className="text-6xl md:text-8xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
              Heshith Dashan
            </h1>
-           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
              I build things for the web using modern technologies. 
              Currently studying SE and mastering Fullstack Development.
            </p>
            
            <div className="flex gap-4 justify-center mt-8">
+             {/* View Projects Button */}
              <button 
                onClick={() => scrollToSection('projects')}
-               className="px-8 py-3 bg-black text-white rounded-full font-semibold hover:bg-gray-800 transition transform hover:scale-105"
+               className="px-8 py-3 rounded-full font-semibold transition transform hover:scale-105 
+               bg-black text-white hover:bg-gray-800 
+               dark:bg-white dark:text-black dark:hover:bg-gray-200"
              >
                View Projects
              </button>
+
+             {/* Contact Me Button (Fixed Visibility) */}
              <button 
                onClick={() => scrollToSection('contact')}
-               className="px-8 py-3 border border-gray-300 rounded-full font-semibold hover:bg-gray-100 transition transform hover:scale-105"
+               className="px-8 py-3 rounded-full font-semibold transition transform hover:scale-105 border 
+               border-gray-300 hover:bg-gray-100 hover:text-black
+               dark:border-gray-600 dark:hover:bg-gray-800 dark:text-white"
              >
                Contact Me
              </button>

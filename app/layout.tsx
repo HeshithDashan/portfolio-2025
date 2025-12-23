@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
-import "./globals.css";
+import "./globals.css"; // 👈 මේ පේළිය අනිවාර්යයෙන්ම තියෙන්න ඕන!
 import { DevModeProvider } from "../components/DevModeContext"; 
-import CustomCursor from "../components/CustomCursor"; 
+import CustomCursor from "../components/CustomCursor";
+
+// ... ඉතුරු ටික පහළින් ...
 
 export const metadata: Metadata = {
   title: "Heshith Dashan | Portfolio",

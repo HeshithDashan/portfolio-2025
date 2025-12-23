@@ -1,5 +1,6 @@
 "use client"
 import React, { createContext, useContext, useState, ReactNode } from 'react';
+import MatrixRain from './MatrixRain'; // ✅ 1. Matrix Rain එක ගත්තා
 
 interface DevModeContextType {
   isDevMode: boolean;
@@ -17,18 +18,25 @@ export const DevModeProvider = ({ children }: { children: ReactNode }) => {
 
   return (
     <DevModeContext.Provider value={{ isDevMode, toggleDevMode }}>
-      <div className={`min-h-screen transition-all duration-500 ease-in-out ${
+      <div className={`min-h-screen transition-all duration-500 ease-in-out relative ${
         isDevMode 
           ? "font-mono bg-black text-green-400 border-[10px] border-green-900" 
           : "font-sans bg-white text-black"
       }`}>
-        {children}
+        
+        {/* ✅ 2. God Mode ON නම් විතරක් වැස්ස පෙන්නනවා */}
+        {isDevMode && <MatrixRain />}
+
+        {/* අනිත් Content ටික වැස්සට යට නොවී උඩින් පේන්න z-index දැම්මා */}
+        <div className="relative z-10">
+            {children}
+        </div>
         
         <button
           onClick={toggleDevMode}
           className={`fixed bottom-8 right-8 z-50 px-6 py-3 font-bold rounded-full shadow-2xl transition-all border-2 ${
             isDevMode 
-            ? "bg-red-600 text-white border-red-400 hover:scale-110" 
+            ? "bg-red-600 text-white border-red-400 hover:scale-110 animate-pulse" 
             : "bg-black text-white border-transparent hover:scale-110"
           }`}
         >
@@ -38,7 +46,6 @@ export const DevModeProvider = ({ children }: { children: ReactNode }) => {
     </DevModeContext.Provider>
   );
 };
-
 
 export const useDevMode = () => {
   const context = useContext(DevModeContext);

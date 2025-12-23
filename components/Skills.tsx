@@ -21,7 +21,6 @@ const getLanguageColor = (language: string) => {
   return colors[language] || "bg-gray-500";
 };
 
-// ✅ BACKUP DATA: API එක වැඩ නැත්නම් මේ ටික පෙන්නනවා
 const FALLBACK_SKILLS = [
   { name: "Python", level: 90, color: "bg-blue-500" },
   { name: "TypeScript", level: 85, color: "bg-blue-600" },
@@ -44,7 +43,6 @@ export default function Skills() {
       try {
         const response = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?per_page=100`);
         
-        // Error එකක් ආවොත් කෙලින්ම catch එකට යවනවා
         if (!response.ok) throw new Error("GitHub Request Failed");
         
         const repos = await response.json();
@@ -68,15 +66,14 @@ export default function Skills() {
 
         calculatedSkills.sort((a, b) => b.level - a.level);
         setSkills(calculatedSkills.slice(0, 6));
-        setUsingFallback(false); // Live Data වැඩ
+        setUsingFallback(false);
         setLoading(false);
 
       } catch (error) {
         console.error("GitHub API Error (Using Fallback):", error);
         
-        // ✅ API එක වැඩ නැත්නම් Backup ටික දානවා
         setSkills(FALLBACK_SKILLS);
-        setUsingFallback(true); // Fallback Mode On
+        setUsingFallback(true); 
         setLoading(false);
       }
     };
@@ -93,7 +90,7 @@ export default function Skills() {
          </div>
       ) : (
         <>
-        {/* GOD MODE */}
+
         {isDevMode ? (
           <div className="border border-green-800 bg-black/90 p-5 font-mono shadow-[0_0_15px_rgba(0,255,0,0.1)] backdrop-blur-sm">
             <div className="flex justify-between border-b border-green-900 pb-2 mb-4 text-xs text-green-600">
@@ -128,7 +125,6 @@ export default function Skills() {
           </div>
         ) : (
 
-        /* NORMAL MODE */
           <div>
             <h2 className="text-3xl font-bold mb-2 text-center">Technical Arsenal</h2>
             <p className="text-center text-gray-500 mb-8 text-sm">

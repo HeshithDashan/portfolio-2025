@@ -23,7 +23,7 @@ const MatrixRain = () => {
     const characters = "アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
     const draw = () => {
-      // පසුබිම බොඳ කිරීම
+
       ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -32,11 +32,10 @@ const MatrixRain = () => {
       for (let i = 0; i < drops.length; i++) {
         const text = characters.charAt(Math.floor(Math.random() * characters.length));
         
-        // අකුරු වල පාට
         if (Math.random() > 0.90) {
-            ctx.fillStyle = "#FF4444"; // රතු පාට
+            ctx.fillStyle = "#FF4444"; 
         } else {
-            ctx.fillStyle = "#0F0";    // කොළ පාට
+            ctx.fillStyle = "#0F0";    
         }
         
         ctx.fillText(text, i * 20, drops[i] * 20);
@@ -68,7 +67,7 @@ const MatrixRain = () => {
     <canvas
       ref={canvasRef}
       className="fixed top-0 left-0 w-full h-full -z-10 pointer-events-none"
-      // 👇 මෙන්න මෙතන මම 0.8 තිබුන එක 0.15 කළා. දැන් ගොඩක් Soft වෙයි.
+
       style={{ opacity: 0.10 }} 
     />
   );

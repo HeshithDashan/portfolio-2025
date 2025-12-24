@@ -1,7 +1,7 @@
 "use client"
 import React, { createContext, useContext, useState, ReactNode, useEffect } from 'react';
-import MatrixRain from './MatrixRain';
 
+// Types
 interface DevModeContextType {
   isDevMode: boolean;
   toggleDevMode: () => void;
@@ -15,14 +15,11 @@ export const DevModeProvider = ({ children }: { children: ReactNode }) => {
   const [isDevMode, setIsDevMode] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
 
-  const toggleDevMode = () => {
-    setIsDevMode((prev) => !prev);
-  };
+  // Toggle Functions
+  const toggleDevMode = () => setIsDevMode((prev) => !prev);
+  const toggleDarkMode = () => setIsDarkMode((prev) => !prev);
 
-  const toggleDarkMode = () => {
-    setIsDarkMode((prev) => !prev);
-  };
-
+  // Handle Dark Mode Class
   useEffect(() => {
     if (isDarkMode) {
       document.documentElement.classList.add('dark');
@@ -33,57 +30,38 @@ export const DevModeProvider = ({ children }: { children: ReactNode }) => {
 
   return (
     <DevModeContext.Provider value={{ isDevMode, toggleDevMode, isDarkMode, toggleDarkMode }}>
-      <div className={`min-h-screen transition-all duration-500 ease-in-out relative ${
+      <div className={`min-h-screen transition-all duration-300 ${
         isDevMode 
-          ? "font-mono bg-black text-green-400 border-[10px] border-green-900 overflow-x-hidden" 
+          ? "bg-black text-green-400 font-mono border-8 border-green-900" // God Mode
           : isDarkMode
-            ? "font-sans bg-[#0a0a0a] text-white" 
-            : "font-sans bg-white text-black" 
+            ? "bg-gray-950 text-white font-sans" // Dark Mode
+            : "bg-white text-black font-sans" // Light Mode (Clean White)
       }`}>
         
-        {isDevMode && <MatrixRain />}
-
-        {!isDevMode && (
-          <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
-
-             <div className={`absolute w-full h-full ${isDarkMode ? 'opacity-30' : 'opacity-30'}`}>
-               
-               <div className={`absolute top-[-20%] left-[-10%] w-[60vw] h-[60vw] rounded-full filter blur-[100px] animate-blob 
-                 ${isDarkMode ? 'bg-blue-900' : 'bg-slate-300'}`}></div>
-               
-               <div className={`absolute top-[20%] right-[-20%] w-[50vw] h-[50vw] rounded-full filter blur-[100px] animate-blob animation-delay-2000 
-                 ${isDarkMode ? 'bg-indigo-900' : 'bg-blue-200'}`}></div>
-               
-               <div className={`absolute bottom-[-20%] left-[10%] w-[50vw] h-[50vw] rounded-full filter blur-[100px] animate-blob animation-delay-4000 
-                 ${isDarkMode ? 'bg-gray-800' : 'bg-gray-200'}`}></div>
-             </div>
-          </div>
-        )}
-
-        <div className="relative z-10">
+        {/* Main Content Area */}
+        <div className="relative z-10 p-4">
             {children}
         </div>
-        
+
+        {/* Floating Controls */}
         <div className="fixed bottom-8 right-8 z-50 flex flex-col gap-4 items-end">
+          {/* Theme Toggle (Only visible in Normal Mode) */}
           {!isDevMode && (
             <button
               onClick={toggleDarkMode}
-              className={`p-4 rounded-full shadow-xl transition-all hover:scale-110 border-2 ${
-                isDarkMode 
-                ? "bg-gray-800 text-yellow-400 border-gray-700" 
-                : "bg-white text-black border-gray-300"
-              }`}
+              className="px-4 py-2 rounded-full shadow-lg border border-gray-300 bg-white text-black dark:bg-gray-800 dark:text-white dark:border-gray-600 hover:scale-105 transition"
             >
-              {isDarkMode ? "🌙" : "☀️"}
+              {isDarkMode ? "🌙 Dark" : "☀️ Light"}
             </button>
           )}
 
+          {/* God Mode Switch */}
           <button
             onClick={toggleDevMode}
-            className={`px-6 py-3 font-bold rounded-full shadow-2xl transition-all border-2 ${
+            className={`px-6 py-3 font-bold rounded-full shadow-xl border-2 transition hover:scale-105 ${
               isDevMode 
-              ? "bg-red-600 text-white border-red-400 hover:scale-110 animate-pulse" 
-              : "bg-black text-white border-transparent hover:scale-110"
+              ? "bg-red-600 text-white border-red-500 animate-pulse" 
+              : "bg-black text-white border-transparent"
             }`}
           >
             {isDevMode ? "⚠️ EXIT GOD MODE" : "🚀 ENTER GOD MODE"}
@@ -97,8 +75,6 @@ export const DevModeProvider = ({ children }: { children: ReactNode }) => {
 
 export const useDevMode = () => {
   const context = useContext(DevModeContext);
-  if (!context) {
-    throw new Error("useDevMode must be used within a DevModeProvider");
-  }
+  if (!context) throw new Error("useDevMode must be used within a DevModeProvider");
   return context;
 };

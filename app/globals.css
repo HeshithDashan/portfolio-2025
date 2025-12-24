@@ -1,36 +1,26 @@
 @import "tailwindcss";
 
+/* මේ @theme කොටසෙන් තමයි අපි පාටවල් ලින්ක් කරන්නේ */
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+}
+
+/* සාමාන්‍ය වෙලාවට පාට (Dark Blue) */
 :root {
-  --background: #0f172a; 
-  --foreground: #e2e8f0; 
-  --primary: #38bdf8;    
-  --font-style: sans-serif; 
+  --background: #020617;
+  --foreground: #f1f5f9;
 }
 
+/* God Mode එකේදි පාට (Matrix Green) */
 .god-mode {
-  --background: #000000; 
-  --foreground: #00ff41;
-  --primary: #008f11;    
-  --font-style: 'Courier New', monospace; 
+  --background: #000000;
+  --foreground: #22c55e;
 }
 
+/* Body settings */
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: var(--font-style);
-  transition: background 0.5s ease, color 0.5s ease; 
-}
-
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-track {
-  background: var(--background);
-}
-::-webkit-scrollbar-thumb {
-  background: #333;
-  border-radius: 4px;
-}
-.god-mode ::-webkit-scrollbar-thumb {
-  background: var(--primary);
+  transition: background-color 0.5s ease, color 0.5s ease;
 }

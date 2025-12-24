@@ -3,13 +3,12 @@ import React from 'react';
 import { useDevMode } from './DevModeContext';
 
 export default function Hero() {
-  // FIXED: isDevMode වෙනුවට isGodMode භාවිතා කරන්න
-  const { isGodMode } = useDevMode();
+
+    const { isGodMode } = useDevMode();
 
   return (
     <section className="min-h-[80vh] flex flex-col justify-center items-center text-center p-5 relative z-10">
       
-      {/* --- GOD MODE VIEW (Hacker Style) --- */}
       {isGodMode ? (
         <div className="text-left space-y-4 max-w-3xl w-full font-mono">
           <p className="text-gray-500 text-sm">// Initializing Portfolio Protocol...</p>

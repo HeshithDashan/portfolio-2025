@@ -37,7 +37,6 @@ export default function Home() {
         </p>
       </div>
 
-      {/* --- The Magic Button --- */}
       <button
         onClick={toggleGodMode}
         className={`
@@ -51,7 +50,6 @@ export default function Home() {
         {isGodMode ? "[ DISABLE_GOD_MODE ]" : "Enable God Mode"}
       </button>
 
-      {/* --- God Mode Background Grid Effect (Optional Decoration) --- */}
       {isGodMode && (
         <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06)_1px,transparent_1px),linear-gradient(rgba(255,0,0,0.06)_1px,transparent_1px)] bg-[length:100%_2px,20px_20px,20px_20px] opacity-20"></div>
       )}

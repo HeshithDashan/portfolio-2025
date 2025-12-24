@@ -20,7 +20,7 @@ const Hero = ({ data }: HeroProps) => {
 
   return (
     <div className="flex flex-col items-center justify-center text-center z-10 p-6 animate-fade-in mt-10">
-      {/* Profile Image */}
+
       <div className="relative mb-8 group">
         <div
           className={`absolute -inset-1 rounded-full blur transition duration-500 ${
@@ -39,12 +39,10 @@ const Hero = ({ data }: HeroProps) => {
         />
       </div>
 
-      {/* Name */}
       <h1 className="text-5xl md:text-7xl font-bold mb-4 tracking-tighter">
         {data.name}
       </h1>
 
-      {/* Bio */}
       <p
         className={`text-lg md:text-xl max-w-2xl mb-8 transition-colors duration-300 ${
           isGodMode ? "text-green-400 font-mono" : "text-gray-300"
@@ -53,7 +51,6 @@ const Hero = ({ data }: HeroProps) => {
         {data.bio}
       </p>
 
-      {/* Stats Grid */}
       <div className="flex gap-8 mb-8 text-center justify-center">
         <div className="flex flex-col items-center">
           <span className="text-3xl font-bold">{data.public_repos}</span>
@@ -69,7 +66,6 @@ const Hero = ({ data }: HeroProps) => {
         📍 {data.location}
       </p>
 
-      {/* GitHub Button */}
       <a
         href={data.html_url}
         target="_blank"

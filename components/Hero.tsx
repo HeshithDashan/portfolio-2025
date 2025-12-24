@@ -31,7 +31,6 @@ export default function Hero() {
              Software Engineering Student
            </div>
            
-           {/* ✅ Light Mode = Black Text | Dark Mode = White Text */}
            <h1 className="text-5xl md:text-8xl font-extrabold text-black dark:text-white mb-6">
              Heshith Dashan
            </h1>

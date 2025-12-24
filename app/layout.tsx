@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { GodModeProvider } from "@/components/GodModeContext";
-import MatrixRain from "@/components/MatrixRain"; // 1. මේක import කරන්න
+import MatrixRain from "@/components/MatrixRain"; 
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,7 +20,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <GodModeProvider>
-          <MatrixRain /> {/* 2. මේක මෙතනට දාන්න (children වලට උඩින් හෝ යටින්) */}
+          <MatrixRain /> 
           {children}
         </GodModeProvider>
       </body>

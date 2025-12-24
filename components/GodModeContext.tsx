@@ -13,7 +13,7 @@ export function GodModeProvider({ children }: { children: React.ReactNode }) {
   const [isGodMode, setIsGodMode] = useState(false);
 
   useEffect(() => {
-    // God Mode ඔන් වුනාම body එකට class එකක් දානවා
+
     if (isGodMode) {
       document.body.classList.add("god-mode");
     } else {

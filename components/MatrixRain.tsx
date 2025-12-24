@@ -20,12 +20,11 @@ const MatrixRain = () => {
     const columns = Math.floor(canvas.width / 20);
     const drops: number[] = new Array(columns).fill(1);
     
-    // Matrix Characters
     const characters = "アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
     const draw = () => {
-      // පසුබිම බොඳ කිරීම (Trail effect)
-      ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+
+        ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       ctx.font = "15px monospace";
@@ -33,11 +32,10 @@ const MatrixRain = () => {
       for (let i = 0; i < drops.length; i++) {
         const text = characters.charAt(Math.floor(Math.random() * characters.length));
         
-        // 🔥 පාට වෙනස් කිරීම (10% ක් රතු පාට)
         if (Math.random() > 0.90) {
-            ctx.fillStyle = "#FF4444"; // හොඳට පේන Bright Red පාටක්
+            ctx.fillStyle = "#FF4444"; 
         } else {
-            ctx.fillStyle = "#0F0";    // කොළ පාට
+            ctx.fillStyle = "#0F0";    
         }
         
         ctx.fillText(text, i * 20, drops[i] * 20);
@@ -69,7 +67,7 @@ const MatrixRain = () => {
     <canvas
       ref={canvasRef}
       className="fixed top-0 left-0 w-full h-full -z-10 pointer-events-none"
-      style={{ opacity: 0.8 }} // 👈 0.8 කලාම පාට හොඳට පේනවා
+      style={{ opacity: 0.8 }} 
     />
   );
 };

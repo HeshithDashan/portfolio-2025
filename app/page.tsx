@@ -7,15 +7,12 @@ export default function Home() {
 
   return (
     <main 
-      // 🔥 වෙනස මෙතනයි: අපි CSS ෆයිල් එක ගැන විශ්වාසය තියන්නෙ නැතුව, කෙලින්ම මෙතන පාට මාරු කරනවා.
-      // bg-slate-900 කියන්නේ ඔයාගේ Professional Dark Blue පාට.
-      // bg-black කියන්නේ God Mode කළු පාට.
-      className={`flex min-h-screen flex-col items-center justify-center gap-6 p-4 transition-all duration-700 ease-in-out ${
+
+    className={`flex min-h-screen flex-col items-center justify-center gap-6 p-4 transition-all duration-700 ease-in-out ${
         isGodMode ? "bg-black" : "bg-slate-900"
       }`}
     >
       
-      {/* --- Heading Section --- */}
       <div className="relative z-10 text-center">
         <h1 
           className={`text-4xl md:text-6xl font-bold mb-4 transition-all duration-500 ${

@@ -26,7 +26,6 @@ export default function Hero() {
         </div>
       ) : (
       
-      /* --- NORMAL MODE VIEW (Professional Style) --- */
         <div className="space-y-6">
            <div className="text-sm font-bold tracking-[0.2em] text-blue-600 uppercase">
              Software Engineering Student

@@ -18,10 +18,9 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-style);
-  transition: background 0.5s ease, color 0.5s ease; /* ස්මූත් මාරු වීමක් */
+  transition: background 0.5s ease, color 0.5s ease; 
 }
 
-/* Scrollbar ලස්සන කරමු */
 ::-webkit-scrollbar {
   width: 8px;
 }

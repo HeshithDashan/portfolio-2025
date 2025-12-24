@@ -1,22 +1,26 @@
-import './globals.css';
-import { DevModeProvider } from '../components/DevModeContext';
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
+import { GodModeProvider } from "@/components/GodModeContext";
 
-export const metadata = {
-  title: 'Heshith Dashan | Portfolio',
-  description: 'Fullstack Software Engineer',
+const inter = Inter({ subsets: ["latin"] });
+
+export const metadata: Metadata = {
+  title: "Hesith Dashan",
+  description: "Portfolio 2025",
 };
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
     <html lang="en">
-      <body>
-        <DevModeProvider>
+      <body className={inter.className}>
+        <GodModeProvider>
           {children}
-        </DevModeProvider>
+        </GodModeProvider>
       </body>
     </html>
   );

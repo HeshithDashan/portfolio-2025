@@ -1,11 +1,10 @@
 @import "tailwindcss";
 
-/* 1. සාමාන්‍ය Professional Dark Mode (Normal) */
 :root {
-  --background: #0f172a; /* ලස්සන තද නිල්-කළු (Slate 900) */
-  --foreground: #e2e8f0; /* පැහැදිලි සුදු (Slate 200) */
-  --primary: #38bdf8;    /* Professional නිල් පාට */
-  --font-style: sans-serif; /* කියවන්න ලේසි අකුරු */
+  --background: #0f172a; 
+  --foreground: #e2e8f0; 
+  --primary: #38bdf8;    
+  --font-style: sans-serif; 
 }
 
 /* 2. God Mode (Hacker Style) */

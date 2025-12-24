@@ -1,25 +1,46 @@
-"use client";
+import Hero from "@/components/Hero";
+import GodModeToggle from "@/components/GodModeToggle";
 
-import { useGodMode } from "@/components/GodModeContext";
+async function getGithubData() {
+  const username = "HeshithDashan";
+  
+  try {
+    const res = await fetch(`https://api.github.com/users/${username}`, {
+      next: { revalidate: 3600 },
+    });
 
-export default function Home() {
-  const { isGodMode, toggleGodMode } = useGodMode();
+    if (!res.ok) {
+      throw new Error(`Failed to fetch: ${res.status}`);
+    }
+
+    return res.json();
+
+  } catch (error) {
+    console.log("⚠️ Using Offline Data (Matching GitHub Screenshot)...");
+    
+    // 👇 ඔයාගේ Screenshot එකේ තිබුන ඇත්තම විස්තර ටික මෙන්න
+    return {
+      avatar_url: "https://avatars.githubusercontent.com/u/98698759?v=4", // මේක තමයි වැඩ කරන ලින්ක් එක
+      name: "Heshith Dashan",
+      bio: "Code. Learn. Build. Repeat. Software Engineer ⚙️ | Open Source Contributor 🌎 | Always curious 🧘‍♂️",
+      location: "Gampaha",
+      public_repos: 14,
+      followers: 6,
+      html_url: "https://github.com/HeshithDashan"
+    };
+  }
+}
+
+export default async function Home() {
+  const data = await getGithubData();
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-24">
-      <h1 className="text-5xl font-bold mb-4">Hesith Dashan</h1>
-      <p className="text-xl opacity-80 mb-8">Fullstack Engineer</p>
+    <main className="flex min-h-screen flex-col items-center justify-center p-8 relative overflow-hidden">
+      <Hero data={data} />
       
-      <button
-        onClick={toggleGodMode}
-        className={`px-8 py-3 rounded-full font-bold border-2 transition-all duration-300 ${
-          isGodMode 
-            ? "border-green-500 text-green-500 shadow-[0_0_20px_rgba(34,197,94,0.5)] bg-black" 
-            : "border-white text-white hover:bg-white hover:text-black"
-        }`}
-      >
-        {isGodMode ? "DISABLE GOD MODE" : "ENABLE GOD MODE"}
-      </button>
+      <div className="mt-12 z-20">
+         <GodModeToggle />
+      </div>
     </main>
   );
 }

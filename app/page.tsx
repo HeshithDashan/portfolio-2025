@@ -18,9 +18,8 @@ async function getGithubData() {
   } catch (error) {
     console.log("⚠️ Using Offline Data (Matching GitHub Screenshot)...");
     
-    // 👇 ඔයාගේ Screenshot එකේ තිබුන ඇත්තම විස්තර ටික මෙන්න
     return {
-      avatar_url: "https://avatars.githubusercontent.com/u/98698759?v=4", // මේක තමයි වැඩ කරන ලින්ක් එක
+      avatar_url: "https://avatars.githubusercontent.com/u/98698759?v=4", 
       name: "Heshith Dashan",
       bio: "Code. Learn. Build. Repeat. Software Engineer ⚙️ | Open Source Contributor 🌎 | Always curious 🧘‍♂️",
       location: "Gampaha",

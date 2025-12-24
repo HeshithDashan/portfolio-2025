@@ -1,7 +1,6 @@
 "use client"
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
-// Context Type එක නිර්වචනය කිරීම
 type DevModeContextType = {
   isGodMode: boolean;
   toggleGodMode: () => void;
@@ -12,12 +11,11 @@ const DevModeContext = createContext<DevModeContextType | undefined>(undefined);
 export const DevModeProvider = ({ children }: { children: React.ReactNode }) => {
   const [isGodMode, setIsGodMode] = useState(false);
 
-  // 🔥 වැදගත්ම කොටස: මේකෙන් තමයි CSS Class එක Body එකට දාන්නේ
   useEffect(() => {
     if (isGodMode) {
-      document.body.classList.add('god-mode'); // God Mode ON වුනාම class එක දානවා
+      document.body.classList.add('god-mode'); 
     } else {
-      document.body.classList.remove('god-mode'); // OFF වුනාම අයින් කරනවා
+      document.body.classList.remove('god-mode'); 
     }
   }, [isGodMode]);
 

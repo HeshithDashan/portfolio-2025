@@ -128,7 +128,6 @@ const SnakeGame = ({ onClose }: { onClose: () => void }) => {
     generateFood();
   };
 
-  // Custom Styles for Glow Effects
   const headStyle = {
     backgroundColor: theme.primary,
     boxShadow: `0 0 10px ${theme.primary}, 0 0 20px ${theme.primary}`,
@@ -148,7 +147,6 @@ const SnakeGame = ({ onClose }: { onClose: () => void }) => {
         ${theme.bg} border-${isGodMode ? 'green' : 'blue'}-500/50 ${theme.glow}
       `}>
         
-        {/* Header */}
         <div className="flex justify-between items-center mb-4">
           <h3 className={`text-xl font-bold font-mono tracking-wider flex items-center gap-2 ${isGodMode ? "text-green-400" : "text-blue-400"}`}>
             <span className="animate-pulse">{">"}</span> NEURAL_SNAKE.exe
@@ -158,7 +156,6 @@ const SnakeGame = ({ onClose }: { onClose: () => void }) => {
           </button>
         </div>
 
-        {/* Game Board Area */}
         <div className="relative p-1 rounded-lg border border-white/10 bg-black overflow-hidden">
           
           <div className="absolute inset-0 pointer-events-none z-20 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_4px,3px_100%] opacity-30"></div>

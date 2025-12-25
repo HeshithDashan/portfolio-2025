@@ -2,7 +2,7 @@ import Hero from "@/components/Hero";
 import GodModeToggle from "@/components/GodModeToggle";
 import TechStack from "@/components/TechStack";
 import Projects from "@/components/Projects";
-import Timeline from "@/components/Timeline"; // 👈 1. අලුතින් import කරා
+import Timeline from "@/components/Timeline"; 
 
 async function getGithubData() {
   const username = "HesithDashan"; 
@@ -44,10 +44,8 @@ export default async function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-8 relative overflow-hidden">
       
-      {/* Hero Section */}
       <Hero data={correctedData} />
       
-      {/* Tech Stack */}
       <div className="w-full max-w-4xl mt-12 mb-12">
         <TechStack />
       </div>

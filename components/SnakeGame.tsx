@@ -178,7 +178,7 @@ const SnakeGame = ({ onClose }: { onClose: () => void }) => {
             className="relative mx-auto z-10"
             style={{ width: GRID_SIZE * CELL_SIZE, height: GRID_SIZE * CELL_SIZE }}
           >
-            {/* Snake Segments */}
+
             {snake.map((segment, i) => (
               <div
                 key={i}
@@ -186,10 +186,10 @@ const SnakeGame = ({ onClose }: { onClose: () => void }) => {
                 style={{
                   left: segment[0] * CELL_SIZE,
                   top: segment[1] * CELL_SIZE,
-                  width: CELL_SIZE - 2, // පොඩි ගැප් එකක් තියනවා
+                  width: CELL_SIZE - 2, 
                   height: CELL_SIZE - 2,
-                  transform: 'translate(1px, 1px)', // මැදට ගන්නවා
-                  ...(i === 0 ? headStyle : bodyStyle) // Head එකට වැඩි Glow එකක්
+                  transform: 'translate(1px, 1px)', 
+                  ...(i === 0 ? headStyle : bodyStyle) 
                 }}
               />
             ))}

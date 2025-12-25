@@ -52,13 +52,10 @@ export default async function Home() {
         <TechStack />
       </div>
 
-      {/* Projects Showcase */}
       <Projects />
 
-      {/* 👇 2. Timeline (System Log) එක මෙතනට දැම්මා */}
       <Timeline />
 
-      {/* God Mode Button */}
       <div className="z-20 mt-12">
          <GodModeToggle />
       </div>

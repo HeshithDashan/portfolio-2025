@@ -161,10 +161,8 @@ const SnakeGame = ({ onClose }: { onClose: () => void }) => {
         {/* Game Board Area */}
         <div className="relative p-1 rounded-lg border border-white/10 bg-black overflow-hidden">
           
-          {/* CRT Scanline Effect Overlay */}
           <div className="absolute inset-0 pointer-events-none z-20 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_4px,3px_100%] opacity-30"></div>
           
-          {/* Grid Background Pattern */}
           <div 
             className="absolute inset-0 opacity-20 z-0"
             style={{
@@ -173,7 +171,6 @@ const SnakeGame = ({ onClose }: { onClose: () => void }) => {
             }}
           ></div>
 
-          {/* The Game Grid Itself */}
           <div 
             className="relative mx-auto z-10"
             style={{ width: GRID_SIZE * CELL_SIZE, height: GRID_SIZE * CELL_SIZE }}

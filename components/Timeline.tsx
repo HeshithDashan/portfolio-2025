@@ -5,7 +5,7 @@ import { useGodMode } from "./GodModeContext";
 
 const timelineData = [
   {
-    year: "2023 Oct", // 🔥 ඇත්ත පටන් ගැන්ම
+    year: "2023 Oct", 
     command: "init_career.exe --java_institute",
     output: "Joined Java Institute for Software Engineering directly after O/Ls [Fast Track]",
     status: "STARTED",
@@ -42,24 +42,21 @@ const Timeline = () => {
           : "bg-[#1e1e1e] border-white/10 shadow-2xl"
         }`}
       >
-        {/* Terminal Header */}
+
         <div className="flex gap-2 mb-6 opacity-50">
           <div className="w-3 h-3 rounded-full bg-red-500"></div>
           <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
           <div className="w-3 h-3 rounded-full bg-green-500"></div>
         </div>
 
-        {/* Log Entries */}
         <div className="flex flex-col gap-6">
           {timelineData.map((item, index) => (
             <div key={index} className="group flex flex-col md:flex-row md:items-start gap-2 md:gap-4 hover:bg-white/5 p-2 rounded transition-colors">
               
-              {/* TimeStamp */}
               <span className={`opacity-50 min-w-[80px] pt-1 ${isGodMode ? "text-green-700" : "text-gray-500"}`}>
                 [{item.year}]
               </span>
 
-              {/* Command Line */}
               <div className="flex-1 flex flex-col">
                 <span className={`${isGodMode ? "text-green-500" : "text-white"} font-bold flex items-center gap-2`}>
                    <span className="opacity-50">$</span> {item.command}
@@ -69,7 +66,6 @@ const Timeline = () => {
                 </span>
               </div>
 
-              {/* Status Badge */}
               <span className={`
                 px-3 py-1 text-xs font-bold border rounded md:ml-auto w-fit mt-2 md:mt-0
                 ${isGodMode 
@@ -83,7 +79,6 @@ const Timeline = () => {
             </div>
           ))}
 
-          {/* Blinking Cursor */}
           <div className={`mt-4 ${isGodMode ? "text-green-500" : "text-white"} animate-pulse`}>
             <span>$</span> <span className="w-2 h-4 bg-current inline-block align-middle ml-1"></span>
           </div>

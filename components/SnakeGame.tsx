@@ -236,7 +236,6 @@ const SnakeGame = ({ onClose }: { onClose: () => void }) => {
           </div>
         </div>
 
-        {/* Footer Controls / Stats */}
         <div className="flex justify-between items-end mt-4 font-mono text-sm font-bold">
            <div className={`flex flex-col ${isGodMode ? "text-green-500" : "text-blue-400"}`}>
              <span className="text-xs opacity-70">SCORE_DATA:</span>

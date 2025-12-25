@@ -4,7 +4,8 @@ import About from "@/components/About";
 import TechStack from "@/components/TechStack";
 import Projects from "@/components/Projects";
 import Timeline from "@/components/Timeline";
-import Footer from "@/components/Footer"; 
+import Footer from "@/components/Footer";
+import ScrollReveal from "@/components/ScrollReveal"; // 👈 1. අලුතින් import කරා
 
 async function getGithubData() {
   const username = "HesithDashan"; 
@@ -47,26 +48,40 @@ export default async function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-8 relative overflow-hidden">
       
+      {/* God Mode Button */}
       <div className="absolute top-6 right-6 z-50">
          <GodModeToggle />
       </div>
       
+      {/* Hero එකට Animation ඕන නෑ, ඒක පටන් ගන්නකොටම පේන්න ඕන නිසා */}
       <Hero data={correctedData} />
       
-      <About 
-        repoCount={correctedData.public_repos} 
-        joinDate="2023-10-23" 
-      />
+      {/* 👇 මෙතනින් පස්සේ හැම එකක්ම ScrollReveal එක ඇතුලට දැම්මා */}
+      
+      <ScrollReveal>
+        <About 
+          repoCount={correctedData.public_repos} 
+          joinDate="2023-10-23" 
+        />
+      </ScrollReveal>
       
       <div className="w-full max-w-4xl mt-12 mb-12">
-        <TechStack />
+        <ScrollReveal>
+          <TechStack />
+        </ScrollReveal>
       </div>
 
-      <Projects />
+      <ScrollReveal>
+        <Projects />
+      </ScrollReveal>
 
-      <Timeline />
+      <ScrollReveal>
+        <Timeline />
+      </ScrollReveal>
 
-      <Footer />
+      <ScrollReveal>
+        <Footer />
+      </ScrollReveal>
 
     </main>
   );

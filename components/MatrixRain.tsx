@@ -32,9 +32,9 @@ const MatrixRain = () => {
         const text = characters.charAt(Math.floor(Math.random() * characters.length));
         
         if (Math.random() > 0.90) {
-            ctx.fillStyle = "#FF4444"; // රතු පාට
+            ctx.fillStyle = "#FF4444";
         } else {
-            ctx.fillStyle = "#0F0";    // කොළ පාට
+            ctx.fillStyle = "#0F0";   
         }
         
         ctx.fillText(text, i * 20, drops[i] * 20);
@@ -66,7 +66,7 @@ const MatrixRain = () => {
     <canvas
       ref={canvasRef}
       className="fixed top-0 left-0 w-full h-full -z-10 pointer-events-none"
-      // 👇 මෙන්න අලුත් අගය (0.4)
+
       style={{ opacity: 0.4 }} 
     />
   );

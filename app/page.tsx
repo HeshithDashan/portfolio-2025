@@ -9,9 +9,8 @@ import Projects from "@/components/Projects";
 import Timeline from "@/components/Timeline";
 import Footer from "@/components/Footer";
 import ScrollReveal from "@/components/ScrollReveal";
-import SnakeGame from "@/components/SnakeGame"; // Game එක import කළා
+import SnakeGame from "@/components/SnakeGame"; 
 
-// Data Fetching Logic (Client Side)
 const getGithubData = async () => {
   const username = "HesithDashan"; 
   try {
@@ -35,31 +34,27 @@ const getGithubData = async () => {
 
 export default function Home() {
   const [data, setData] = useState<any>(null);
-  const [showGame, setShowGame] = useState(false); // Game එකේ State එක
+  const [showGame, setShowGame] = useState(false); 
 
   useEffect(() => {
-    // Page එක Load වෙද්දි Data ගන්නවා
+
     getGithubData().then((fetchedData) => {
       setData({ ...fetchedData, name: "Heshith Dashan" });
     });
   }, []);
 
-  // Data එනකම් පොඩි Loading එකක්
   if (!data) return <div className="min-h-screen bg-black flex items-center justify-center text-green-500 font-mono">Initializing System...</div>;
 
   return (
-    // 🔥 Fix 1: Footer එක Full Width එන්න නම් main එකේ padding අයින් කරන්න ඕන
+
     <main className="min-h-screen relative overflow-hidden flex flex-col">
       
-      {/* God Mode Button */}
       <div className="absolute top-6 right-6 z-50">
          <GodModeToggle />
       </div>
 
-      {/* 🔥 Fix 2: Game Screen (Popup) */}
       {showGame && <SnakeGame onClose={() => setShowGame(false)} />}
       
-      {/* Content Wrapper: අනිත් ඔක්කොම මැදට ගේන්න මේක පාවිච්චි කරනවා */}
       <div className="flex-1 w-full flex flex-col items-center p-8">
         
         <Hero data={data} />
@@ -85,7 +80,6 @@ export default function Home() {
           <Timeline />
         </ScrollReveal>
 
-        {/* 🔥 Fix 3: Game Button එක මෙතනට දැම්මා */}
         <ScrollReveal>
           <div className="w-full flex justify-center mt-12 mb-8">
             <button
@@ -99,7 +93,6 @@ export default function Home() {
 
       </div>
 
-      {/* 🔥 Fix 4: Footer එක Wrapper එකෙන් එළියට ගත්තා (දැන් Full Width වැටෙයි) */}
       <ScrollReveal>
         <Footer />
       </ScrollReveal>

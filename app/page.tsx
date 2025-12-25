@@ -21,7 +21,7 @@ async function getGithubData() {
     console.log("⚠️ Using Offline Data...");
     
     return {
-      // 👇 🔥 මෙන්න මෙතන වෙනස් කළා! (Local Image එක දැම්මා)
+
       avatar_url: "/profile.png", 
       
       name: "Heshith Dashan",

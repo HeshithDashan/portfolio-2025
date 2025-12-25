@@ -4,6 +4,7 @@ import About from "@/components/About";
 import TechStack from "@/components/TechStack";
 import Projects from "@/components/Projects";
 import Timeline from "@/components/Timeline";
+import Footer from "@/components/Footer"; // 👈 1. අලුතින් import කරා
 
 async function getGithubData() {
   const username = "HesithDashan"; 
@@ -46,6 +47,7 @@ export default async function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-8 relative overflow-hidden">
       
+      {/* Top Right Button */}
       <div className="absolute top-6 right-6 z-50">
          <GodModeToggle />
       </div>
@@ -65,7 +67,8 @@ export default async function Home() {
 
       <Timeline />
 
-      <div className="pb-20"></div>
+      {/* 👇 2. අන්තිමට Footer එක දැම්මා */}
+      <Footer />
 
     </main>
   );

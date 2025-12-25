@@ -29,7 +29,7 @@ async function getGithubData() {
       location: "Gampaha",
       public_repos: 14,
       followers: 6,
-      created_at: "2023-10-23T00:00:00Z", // Backup එකටත් ඔයාගේ ඇත්ත දිනය දැම්මා
+      created_at: "2023-10-23T00:00:00Z", 
       html_url: "https://github.com/HesithDashan"
     };
   }
@@ -46,15 +46,12 @@ export default async function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-8 relative overflow-hidden">
       
-      {/* Top Right God Mode Button */}
       <div className="absolute top-6 right-6 z-50">
          <GodModeToggle />
       </div>
       
       <Hero data={correctedData} />
       
-      {/* 👇 වෙනස්කම මෙතනයි: */}
-      {/* අපි GitHub දිනය නොගෙන, ඔයා වැඩ පටන් ගත්ත ඇත්ත දිනය (2023 Oct 23) මෙතනට දැම්මා */}
       <About 
         repoCount={correctedData.public_repos} 
         joinDate="2023-10-23" 

@@ -5,13 +5,11 @@
   --color-foreground: var(--foreground);
 }
 
-/* Base Theme Settings */
 :root {
   --background: #020617;
   --foreground: #f1f5f9;
 }
 
-/* God Mode Theme Settings */
 .god-mode {
   --background: #000000;
   --foreground: #22c55e;
@@ -23,20 +21,16 @@ body {
   transition: background-color 0.5s ease, color 0.5s ease;
 }
 
-/* 👇 මෙන්න මේ ටික තමයි අලුතින් එකතු කලේ (Animation එකට) */
-
-/* වමේ සිට දකුණට යන Animation එක (Marquee Effect) */
 @keyframes scroll {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
 
 .animate-scroll {
-  animation: scroll 20s linear infinite; /* තත්පර 20කින් වටයක් යනවා */
-  width: max-content; /* අනිවාර්යයි: content එකේ සයිස් එක ගන්න */
+  animation: scroll 20s linear infinite; 
+  width: max-content; 
 }
 
-/* Mouse එක ගෙනිච්චම Animation එක නවතින්න ඕන නම් මේක තියන්න */
 .animate-scroll:hover {
   animation-play-state: paused;
 }

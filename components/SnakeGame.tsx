@@ -194,7 +194,6 @@ const SnakeGame = ({ onClose }: { onClose: () => void }) => {
               />
             ))}
 
-            {/* Food (Data Packet) - pulsing animation */}
             <div
               className="absolute rounded-sm animate-pulse"
               style={{
@@ -207,11 +206,10 @@ const SnakeGame = ({ onClose }: { onClose: () => void }) => {
                 boxShadow: `0 0 15px ${theme.danger}, inset 0 0 5px white`
               }}
             >
-              {/* Microchip detail on food */}
+
               <div className="absolute inset-[3px] border border-white/40 rounded-sm"></div>
             </div>
             
-            {/* Overlays (Game Over / Paused) */}
             {(gameOver || isPaused) && (
               <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/80 backdrop-blur-sm z-30 text-white font-mono font-bold">
                  {gameOver ? (

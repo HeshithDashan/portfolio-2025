@@ -17,23 +17,20 @@ const SnakeGame = ({ onClose }: { onClose: () => void }) => {
   const [gameOver, setGameOver] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
 
-  // Generate random food
   const generateFood = useCallback(() => {
-    let newFood: number[]; // 👈 Fix 1: මෙතන Type එක අලුතින් දැම්මා
+    let newFood: number[]; 
     while (true) {
       newFood = [
         Math.floor(Math.random() * GRID_SIZE),
         Math.floor(Math.random() * GRID_SIZE),
       ];
-      // Check if food spawns on snake
-      // eslint-disable-next-line no-loop-func
+
       const isOnSnake = snake.some(segment => segment[0] === newFood[0] && segment[1] === newFood[1]);
       if (!isOnSnake) break;
     }
     setFood(newFood);
   }, [snake]);
 
-  // Game Loop
   useEffect(() => {
     if (gameOver || isPaused) return;
 
@@ -44,7 +41,6 @@ const SnakeGame = ({ onClose }: { onClose: () => void }) => {
           prevSnake[0][1] + direction.y,
         ];
 
-        // Check Collision (Walls)
         if (
           newHead[0] < 0 ||
           newHead[0] >= GRID_SIZE ||
@@ -55,7 +51,6 @@ const SnakeGame = ({ onClose }: { onClose: () => void }) => {
           return prevSnake;
         }
 
-        // Check Collision (Self)
         if (prevSnake.some((seg) => seg[0] === newHead[0] && seg[1] === newHead[1])) {
           setGameOver(true);
           return prevSnake;
@@ -63,7 +58,6 @@ const SnakeGame = ({ onClose }: { onClose: () => void }) => {
 
         const newSnake = [newHead, ...prevSnake];
 
-        // Check Food
         if (newHead[0] === food[0] && newHead[1] === food[1]) {
           setScore((s) => s + 1);
           generateFood();
@@ -78,7 +72,6 @@ const SnakeGame = ({ onClose }: { onClose: () => void }) => {
     return () => clearInterval(moveSnake);
   }, [direction, food, gameOver, isPaused, generateFood]);
 
-  // Keyboard Controls
   useEffect(() => {
     const handleKeyPress = (e: KeyboardEvent) => {
       if(["ArrowUp","ArrowDown","ArrowLeft","ArrowRight"].indexOf(e.code) > -1) {
@@ -120,17 +113,15 @@ const SnakeGame = ({ onClose }: { onClose: () => void }) => {
         ${isGodMode ? "bg-black border-green-500 shadow-green-500/20" : "bg-[#1e1e1e] border-white/20"}
       `}>
         
-        {/* Header */}
         <div className="flex justify-between items-center mb-4">
           <h3 className={`text-xl font-bold font-mono ${isGodMode ? "text-green-500" : "text-white"}`}>
-            {">"} SNAKE_GAME.exe {/* 👈 Fix 2: මෙතන > ලකුණ Escape කළා */}
+            {">"} SNAKE_GAME.exe 
           </h3>
           <button onClick={onClose} className="text-red-500 hover:text-red-400 font-bold px-2">
              [X]
           </button>
         </div>
 
-        {/* Game Board */}
         <div 
           className="relative bg-black/50 border border-gray-700 mx-auto"
           style={{ width: GRID_SIZE * CELL_SIZE, height: GRID_SIZE * CELL_SIZE }}

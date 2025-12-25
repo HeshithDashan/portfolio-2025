@@ -8,8 +8,8 @@ const Footer = () => {
 
   const socialLinks = [
     { name: "GitHub", url: "https://github.com/HesithDashan", godName: "ACCESS_REPO" },
-    { name: "LinkedIn", url: "#", godName: "LINK_NETWORK" }, // 🔥 මෙතනට ඔයාගේ LinkedIn Link එක දාන්න
-    { name: "Facebook", url: "#", godName: "SOCIAL_FEED" },   // 🔥 මෙතනට Facebook Link එක දාන්න
+    { name: "LinkedIn", url: "#", godName: "LINK_NETWORK" }, 
+    { name: "Facebook", url: "#", godName: "SOCIAL_FEED" },   
     { name: "Email", url: "mailto:heshithdashan24@gmail.com", godName: "SEND_PACKET" }
   ];
 
@@ -19,12 +19,10 @@ const Footer = () => {
       
       <div className="max-w-4xl mx-auto px-6 text-center">
         
-        {/* Connection Header */}
         <h2 className={`text-2xl font-bold mb-8 ${isGodMode ? "text-green-500 font-mono" : "text-white"}`}>
           {isGodMode ? "> INITIATE_CONNECTION_PROTOCOL" : "Let's Connect"}
         </h2>
 
-        {/* Links Container */}
         <div className="flex flex-wrap justify-center gap-6 mb-12">
           {socialLinks.map((link, index) => (
             <a
@@ -45,7 +43,6 @@ const Footer = () => {
           ))}
         </div>
 
-        {/* System Status / Copyright */}
         <div className={`text-sm ${isGodMode ? "text-green-700 font-mono" : "text-gray-600"}`}>
           {isGodMode ? (
             <div className="animate-pulse">

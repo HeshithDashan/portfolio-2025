@@ -23,7 +23,6 @@ const MatrixRain = () => {
     const characters = "アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレヱゲゼデベペオォコソトノホモヨョロヲゴゾドボポ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
     const draw = () => {
-
       ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -33,9 +32,9 @@ const MatrixRain = () => {
         const text = characters.charAt(Math.floor(Math.random() * characters.length));
         
         if (Math.random() > 0.90) {
-            ctx.fillStyle = "#FF4444"; 
+            ctx.fillStyle = "#FF4444"; // රතු පාට
         } else {
-            ctx.fillStyle = "#0F0";    
+            ctx.fillStyle = "#0F0";    // කොළ පාට
         }
         
         ctx.fillText(text, i * 20, drops[i] * 20);
@@ -67,8 +66,8 @@ const MatrixRain = () => {
     <canvas
       ref={canvasRef}
       className="fixed top-0 left-0 w-full h-full -z-10 pointer-events-none"
-
-      style={{ opacity: 0.10 }} 
+      // 👇 මෙන්න අලුත් අගය (0.4)
+      style={{ opacity: 0.4 }} 
     />
   );
 };

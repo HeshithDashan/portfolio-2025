@@ -3,21 +3,19 @@
 import React, { useMemo } from "react";
 import { useGodMode } from "./GodModeContext";
 
-// පිටින් එන ඩේටා වලට Type එකක්
 interface AboutProps {
   repoCount: number;
-  joinDate: string; // GitHub එකෙන් එන දිනය (උදා: "2021-10-20T...")
+  joinDate: string; 
 }
 
 const About = ({ repoCount, joinDate }: AboutProps) => {
   const { isGodMode } = useGodMode();
 
-  // Experience එක ඔටෝම ගණන් හදන ලොජික් එක
   const experienceYears = useMemo(() => {
     const startYear = new Date(joinDate).getFullYear();
     const currentYear = new Date().getFullYear();
     const years = currentYear - startYear;
-    return years > 0 ? years : 1; // අඩුම තරමේ අවුරුද්දක්වත් පෙන්වන්න
+    return years > 0 ? years : 1; 
   }, [joinDate]);
 
   return (
@@ -29,7 +27,7 @@ const About = ({ repoCount, joinDate }: AboutProps) => {
           : "bg-white/5 border-white/10 backdrop-blur-sm hover:bg-white/10"
         }
       `}>
-        {/* God Mode Decoration Lines */}
+
         {isGodMode && (
           <>
             <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-green-500 rounded-tl-lg"></div>
@@ -59,10 +57,8 @@ const About = ({ repoCount, joinDate }: AboutProps) => {
           </p>
         </div>
 
-        {/* Dynamic Stats Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 pt-8 border-t border-gray-700/50">
           
-          {/* 🔥 මෙන්න මෙතන තමයි Live Update වෙන්නේ */}
           <StatBox label="Experience" value={`${experienceYears}+ Years`} isGodMode={isGodMode} />
           <StatBox label="Projects" value={`${repoCount}+`} isGodMode={isGodMode} />
           

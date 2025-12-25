@@ -3,29 +3,26 @@
 import React, { useState, useEffect, useCallback, useRef } from "react";
 import { useGodMode } from "./GodModeContext";
 
-// --- Configuration ---
 const GRID_SIZE = 20;
 const CELL_SIZE = 20;
-const INITIAL_SNAKE = [[5, 5], [4, 5], [3, 5]]; // පටන් ගන්නකොටම කොටස් 3ක් දිගයි
+const INITIAL_SNAKE = [[5, 5], [4, 5], [3, 5]]; 
 const INITIAL_DIRECTION = { x: 1, y: 0 };
-const GAME_SPEED = 120; // වේගය ටිකක් වැඩි කළා
+const GAME_SPEED = 120; 
 
 const SnakeGame = ({ onClose }: { onClose: () => void }) => {
   const { isGodMode } = useGodMode();
   const [snake, setSnake] = useState(INITIAL_SNAKE);
-  const directionRef = useRef(INITIAL_DIRECTION); // Ref එකක් පාවිච්චි කරනවා ඉක්මන් හැරවීම් වලට
+  const directionRef = useRef(INITIAL_DIRECTION); 
   const [food, setFood] = useState([10, 10]);
   const [score, setScore] = useState(0);
   const [gameOver, setGameOver] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
   const gameLoopRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Theme Colors
   const theme = isGodMode
     ? { primary: "#22c55e", secondary: "#166534", danger: "#ef4444", bg: "bg-black", glow: "shadow-green-500/50" }
     : { primary: "#3b82f6", secondary: "#1e40af", danger: "#f97316", bg: "bg-[#0a0a0a]", glow: "shadow-blue-500/50" };
 
-  // Generate random food
   const generateFood = useCallback(() => {
     let newFood: number[];
     while (true) {
@@ -33,14 +30,13 @@ const SnakeGame = ({ onClose }: { onClose: () => void }) => {
         Math.floor(Math.random() * GRID_SIZE),
         Math.floor(Math.random() * GRID_SIZE),
       ];
-      // eslint-disable-next-line no-loop-func
+
       const isOnSnake = snake.some(segment => segment[0] === newFood[0] && segment[1] === newFood[1]);
       if (!isOnSnake) break;
     }
     setFood(newFood);
   }, [snake]);
 
-  // Game Loop
   useEffect(() => {
     if (gameOver || isPaused) return;
 
@@ -52,7 +48,6 @@ const SnakeGame = ({ onClose }: { onClose: () => void }) => {
           prevSnake[0][1] + currentDir.y,
         ];
 
-        // Check Collision (Walls or Self)
         if (
           newHead[0] < 0 || newHead[0] >= GRID_SIZE ||
           newHead[1] < 0 || newHead[1] >= GRID_SIZE ||
@@ -64,7 +59,6 @@ const SnakeGame = ({ onClose }: { onClose: () => void }) => {
 
         const newSnake = [newHead, ...prevSnake];
 
-        // Check Food
         if (newHead[0] === food[0] && newHead[1] === food[1]) {
           setScore((s) => s + 1);
           generateFood();
@@ -81,10 +75,9 @@ const SnakeGame = ({ onClose }: { onClose: () => void }) => {
     };
   }, [food, gameOver, isPaused, generateFood]);
 
-  // Controls
   useEffect(() => {
     const handleKeyPress = (e: KeyboardEvent) => {
-      // Pause Game
+
       if (e.code === "Space") {
         setIsPaused(prev => !prev);
         return;
@@ -92,7 +85,6 @@ const SnakeGame = ({ onClose }: { onClose: () => void }) => {
 
       if (gameOver || isPaused) return;
 
-      // Prevent scrolling
       if(["ArrowUp","ArrowDown","ArrowLeft","ArrowRight"].indexOf(e.code) > -1) {
           e.preventDefault();
       }

@@ -2,6 +2,7 @@ import Hero from "@/components/Hero";
 import GodModeToggle from "@/components/GodModeToggle";
 import TechStack from "@/components/TechStack";
 import Projects from "@/components/Projects";
+import Timeline from "@/components/Timeline"; // 👈 1. අලුතින් import කරා
 
 async function getGithubData() {
   const username = "HesithDashan"; 
@@ -21,9 +22,7 @@ async function getGithubData() {
     console.log("⚠️ Using Offline Data...");
     
     return {
-
       avatar_url: "/profile.png", 
-      
       name: "Heshith Dashan",
       bio: "Code. Learn. Build. Repeat. Software Engineer ⚙️ | Open Source Contributor 🌎 | Always curious 🧘‍♂️",
       location: "Gampaha",
@@ -45,14 +44,21 @@ export default async function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-8 relative overflow-hidden">
       
+      {/* Hero Section */}
       <Hero data={correctedData} />
       
+      {/* Tech Stack */}
       <div className="w-full max-w-4xl mt-12 mb-12">
         <TechStack />
       </div>
 
+      {/* Projects Showcase */}
       <Projects />
 
+      {/* 👇 2. Timeline (System Log) එක මෙතනට දැම්මා */}
+      <Timeline />
+
+      {/* God Mode Button */}
       <div className="z-20 mt-12">
          <GodModeToggle />
       </div>

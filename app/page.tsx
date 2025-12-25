@@ -1,6 +1,7 @@
 import Hero from "@/components/Hero";
 import GodModeToggle from "@/components/GodModeToggle";
-import TechStack from "@/components/TechStack"; 
+import TechStack from "@/components/TechStack";
+import Projects from "@/components/Projects";
 
 async function getGithubData() {
   const username = "HesithDashan"; 
@@ -20,7 +21,9 @@ async function getGithubData() {
     console.log("⚠️ Using Offline Data...");
     
     return {
-      avatar_url: "https://avatars.githubusercontent.com/u/98698759?v=4", 
+      // 👇 🔥 මෙන්න මෙතන වෙනස් කළා! (Local Image එක දැම්මා)
+      avatar_url: "/profile.png", 
+      
       name: "Heshith Dashan",
       bio: "Code. Learn. Build. Repeat. Software Engineer ⚙️ | Open Source Contributor 🌎 | Always curious 🧘‍♂️",
       location: "Gampaha",
@@ -48,7 +51,9 @@ export default async function Home() {
         <TechStack />
       </div>
 
-      <div className="z-20">
+      <Projects />
+
+      <div className="z-20 mt-12">
          <GodModeToggle />
       </div>
 

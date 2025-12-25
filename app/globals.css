@@ -4,7 +4,6 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   
-  /* 👇 1. Font Variables ටික Tailwind වලට අඳුන්නලා දීම */
   --font-sans: var(--font-sans); 
   --font-mono: var(--font-mono);
 }
@@ -18,18 +17,16 @@
   --background: #000000;
   --foreground: #22c55e;
   
-  /* 👇 2. God Mode එකේදි විතරක් Hacker Font (Mono) එක බලෙන් දානවා */
   font-family: var(--font-mono) !important; 
 }
 
 body {
-  /* 👇 3. සාමාන්‍ය වෙලාවට Sans Font එක (Inter) පාවිච්චි කරනවා */
+
   font-family: var(--font-sans);
 
   background-color: var(--background);
   color: var(--foreground);
   
-  /* Font එක මාරු වෙනකොට Smooth වෙන්න transition එකට font-family එකතු කළා */
   transition: background-color 0.5s ease, color 0.5s ease, font-family 0.3s ease;
 }
 

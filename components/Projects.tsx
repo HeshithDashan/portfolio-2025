@@ -6,14 +6,13 @@ import { useGodMode } from "./GodModeContext";
 const Projects = () => {
   const { isGodMode } = useGodMode();
 
-  // 🔥 ඔයාගේ ඔක්කොම Projects (Private & Public) මෙතනට දැම්මා
   const allProjects = [
     {
       name: "MR Companion",
       description: "Mobile application for Unilever sales representatives to manage daily tasks and targets.",
       language: "Flutter / Dart",
       stars: 5,
-      url: "https://github.com/HesithDashan", // Private නිසා Profile එකට යවමු
+      url: "https://github.com/HesithDashan", 
       isPrivate: true
     },
     {
@@ -102,7 +101,7 @@ const Projects = () => {
               }
             `}
           >
-            {/* Card Header */}
+
             <div className="flex justify-between items-start mb-4">
               <h3 className={`text-xl font-bold ${isGodMode ? "text-green-400" : "text-white"}`}>
                 {project.name}
@@ -117,12 +116,10 @@ const Projects = () => {
               </div>
             </div>
             
-            {/* Description */}
             <p className="text-sm opacity-70 mb-6 h-12 overflow-hidden line-clamp-2">
               {project.description}
             </p>
 
-            {/* Language Tag */}
             <div className="flex items-center gap-2 text-xs font-mono opacity-60">
               <span className={`w-3 h-3 rounded-full ${isGodMode ? "bg-green-500" : "bg-blue-400"}`}></span>
               {project.language}

@@ -44,26 +44,20 @@ export default async function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-8 relative overflow-hidden">
       
-      {/* 👇 වෙනස්කම: God Mode Button එක උඩටම (Top-Right) ගත්තා */}
       <div className="absolute top-6 right-6 z-50">
          <GodModeToggle />
       </div>
       
-      {/* Hero Section */}
       <Hero data={correctedData} />
       
-      {/* Tech Stack */}
       <div className="w-full max-w-4xl mt-12 mb-12">
         <TechStack />
       </div>
 
-      {/* Projects Showcase */}
       <Projects />
 
-      {/* Timeline (System Logs) */}
       <Timeline />
 
-      {/* Footer එකට පොඩි ඉඩක් තියන්න */}
       <div className="pb-20"></div>
 
     </main>

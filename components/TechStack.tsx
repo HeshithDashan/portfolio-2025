@@ -13,7 +13,7 @@ const TechStack = () => {
   return (
     <div className="w-full overflow-hidden py-10 relative z-10">
       <div className="flex w-[200%] animate-scroll">
-        {/* Infinite Loop එකක් එන්න නම් ලිස්ට් එක දෙපාරක් රෙන්ඩර් කරන්න ඕන */}
+
         {[...skills, ...skills].map((skill, index) => (
           <div
             key={index}
